@@ -100,7 +100,7 @@ export const refreshUserSession = async (req, res) => {
   });
 };
 
-export const requestResetEmail = async (req, res, next) => {
+export const requestResetEmail = async (req, res) => {
   const { email } = req.body;
 
   const user = await User.findOne({ email });
@@ -142,7 +142,6 @@ export const requestResetEmail = async (req, res, next) => {
   res.status(200).json({
     message: 'If this email exists, a reset link has been sent',
   });
-  next();
 };
 
 export const resetPassword = async (req, res) => {

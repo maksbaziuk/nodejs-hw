@@ -6,13 +6,7 @@ export const upload = multer({
     fileSize: 2 * 1024 * 1024,
   },
   fileFilter: (req, file, cb) => {
-    const allowedTypes = [
-      'image/jpeg',
-      'image/jpg',
-      'image/png',
-      'image/gif',
-      'image/webp',
-    ];
+    const allowedTypes = ['image/'];
     if (allowedTypes.includes(file.mimetype)) {
       cb(null, true);
     } else {
